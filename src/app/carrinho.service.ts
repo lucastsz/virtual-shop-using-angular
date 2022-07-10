@@ -6,13 +6,14 @@ import { IProdutoCarrinho } from './produtos';
 })
 export class CarrinhoService {
 
-itens: IProdutoCarrinho[] = []
+itens: IProdutoCarrinho[] = [];
+
 
   constructor() { }
 
   obtemCarrinho(){
-    const carrinho = JSON.parse(localStorage.getItem("carrinho") || "");
-    return carrinho;
+    this.itens = JSON.parse(localStorage.getItem("carrinho") || "[]");
+    return this.itens;
   }
 
   adicionarAoCarrinho(produto: IProdutoCarrinho){
@@ -24,4 +25,12 @@ itens: IProdutoCarrinho[] = []
     this.itens = []
     localStorage.clear();
   }
+
+  removerProdutoCarrinho(produtoId: number){
+    this.itens = this.itens.filter(item => item.id !== produtoId)
+    localStorage.setItem("carrinho", JSON.stringify(this.itens));
+  }
+
+
+  
 }
