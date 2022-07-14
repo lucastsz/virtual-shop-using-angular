@@ -90,6 +90,12 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/virtual-shop-using-angular/"
+          }
         }
       }
     }
