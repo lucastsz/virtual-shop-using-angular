@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy:ghdocs": "ng build site --output-path docs --base-href /virtual-shop-using-angular/"
   },
   "private": true,
   "dependencies": {
